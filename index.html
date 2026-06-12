@@ -4,131 +4,270 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dariya Digital | Web & Marketing Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for Consistent Theming */
+        :root {
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --dark-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
         /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333;
-            line-height: 1.6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--white);
             scroll-behavior: smooth;
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation (Glassmorphism) */
         header {
-            background: #111;
-            color: #fff;
-            padding: 1rem 2rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         header h2 {
-            margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            cursor: pointer;
         }
+
+        header h2 span {
+            color: var(--primary-color);
+        }
+
         nav a {
-            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
+            margin-left: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
+
         nav a:hover {
-            color: #4da6ff;
+            color: var(--primary-color);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('[Insert Background Image URL]') center/cover;
-            background-color: #2c3e50;
-            color: white;
-            padding: 120px 20px;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 0 20px;
         }
+
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            animation: fadeInDown 1s ease-out;
         }
+
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
-            margin: 0 auto 30px auto;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
+
         .btn {
             display: inline-block;
-            background: #4da6ff;
-            color: #fff;
-            padding: 12px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 14px 36px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
+
         .btn:hover {
-            background: #3388dd;
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4);
         }
 
         /* Sections Structure */
         section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section.bg-light {
+            background-color: var(--bg-light);
+            max-width: 100%;
+        }
+
+        .section-inner {
+            max-width: 1200px;
             margin: auto;
             text-align: center;
         }
-        section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: #2c3e50;
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
         }
 
         /* Services Grid */
         .services-container {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .service-card {
-            background: #f9f9f9;
-            border: 1px solid #eaeaea;
-            padding: 30px;
-            flex: 1;
-            min-width: 280px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .service-card h3 {
-            color: #4da6ff;
-            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        /* Contact Details */
-        .contact-info {
-            background: #f4f7f6;
-            padding: 40px;
-            border-radius: 8px;
-            margin-top: 20px;
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
             text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
         }
-        .contact-info p {
-            margin-bottom: 10px;
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-color);
+        }
+
+        .icon-wrapper {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item strong {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item span {
+            color: var(--text-light);
             font-size: 1.1rem;
         }
 
         /* Footer */
         footer {
-            background: #111;
-            color: #aaa;
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.5);
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+            nav a { margin: 0 10px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -136,7 +275,7 @@
 
     <!-- Header -->
     <header>
-        <h2>Dariya Digital</h2>
+        <h2>Dariya <span>Digital</span></h2>
         <nav>
             <a href="#about">About</a>
             <a href="#services">Services</a>
@@ -153,39 +292,65 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2>About Us</h2>
-        <p>Founded by Kareem, Dariya Digital is a modern web and marketing agency focused on delivering measurable results. We understand that in today's landscape, a strong digital presence is the core of business growth. From the first line of code to the launch of your marketing campaigns, our mission is to elevate your brand and connect you with your ideal audience.</p>
+        <div class="section-inner">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Founded by Kareem, Dariya Digital is a modern web and marketing agency focused on delivering measurable results. We understand that in today's landscape, a strong digital presence is the core of business growth. From the first line of code to the launch of your marketing campaigns, our mission is to elevate your brand and connect you with your ideal audience.</p>
+        </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
-        <h2>What We Do</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <h3>Web Development</h3>
-                <p>Fast, responsive, and beautifully designed websites tailored to your specific business needs and engineered to convert visitors into clients.</p>
-            </div>
-            <div class="service-card">
-                <h3>Digital Marketing</h3>
-                <p>Strategic, data-driven marketing campaigns that cut through the noise, expanding your reach and increasing your revenue.</p>
-            </div>
-            <div class="service-card">
-                <h3>Brand Strategy</h3>
-                <p>Comprehensive consulting to build a cohesive online identity that resonates with your target market and fosters long-term loyalty.</p>
+    <section id="services" class="bg-light">
+        <div class="section-inner">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">Comprehensive digital solutions engineered for modern brands.</p>
+            
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="icon-wrapper">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Fast, responsive, and beautifully designed websites tailored to your specific business needs and engineered to convert visitors into clients.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-wrapper">📈</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic, data-driven marketing campaigns that cut through the noise, expanding your reach and increasing your revenue.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-wrapper">🎯</div>
+                    <h3>Brand Strategy</h3>
+                    <p>Comprehensive consulting to build a cohesive online identity that resonates with your target market and fosters long-term loyalty.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <p>Ready to take the next step? Reach out to discover how Dariya Digital can help your business thrive.</p>
-        
-        <div class="contact-info">
-            <p><strong>Email:</strong> [Insert Email]</p>
-            <p><strong>Phone:</strong> [Insert Phone Number]</p>
-            <p><strong>Address:</strong> [Insert Address]</p>
-            <p><strong>Business Hours:</strong> [Insert Business Hours]</p>
+        <div class="section-inner contact-grid">
+            <div>
+                <h2 class="section-title" style="text-align: left;">Get In Touch</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Ready to take the next step? Reach out to discover how Dariya Digital can help your business thrive.</p>
+                <a href="mailto:hello@dariyadigital.com" class="btn">Email Us Today</a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <span>hello@dariyadigital.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Address</strong>
+                    <span>123 Innovation Drive, Tech City</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Business Hours</strong>
+                    <span>Mon - Fri, 9:00 AM - 6:00 PM</span>
+                </div>
+            </div>
         </div>
     </section>
 
