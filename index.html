@@ -1,384 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dariya Digital | Premium Web & Marketing Agency</title>
-
-<!-- Upgraded Typography: Plus Jakarta Sans for Headings, Inter for Body -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
-
-<style>
-/* ================= GLOBAL ================= */
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #FAFAFA; /* Soft off-white is more premium than pure white */
-    color: #334155;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, .brand {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #0F172A;
-}
-
-/* ================= NAV ================= */
-header {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #E2E8F0;
-    backdrop-filter: blur(12px);
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-.brand {
-    font-weight: 800;
-    font-size: 1.4rem;
-    color: #2563EB;
-    text-decoration: none;
-    letter-spacing: -0.5px;
-}
-
-nav a {
-    color: #475569;
-    text-decoration: none;
-    margin-left: 30px;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-nav a:hover { color: #2563EB; }
-
-/* ================= BUTTONS ================= */
-.btn {
-    display: inline-block;
-    background: #2563EB;
-    color: #fff;
-    padding: 16px 32px;
-    border-radius: 8px; /* Sharper corners look more B2B/Premium */
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #1D4ED8;
-    transform: translateY(-2px);
-}
-
-/* ================= HERO (SPLIT LAYOUT) ================= */
-.hero {
-    min-height: 90vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 40px 5%;
-    position: relative;
-    gap: 40px;
-    background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
-}
-
-/* FIXED: Changed text from light gray to dark slate */
-.hero-content p {
-    font-size: 1.15rem;
-    color: #475569;
-    margin-bottom: 32px;
-    max-width: 500px;
-}
-
-/* The "Graphical Visual" Placeholder for the Hero */
-.hero-visual {
-    width: 100%;
-    height: 500px;
-    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-    border-radius: 24px;
-    border: 1px solid #BFDBFE;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-/* Abstract UI shapes inside the visual */
-.hero-visual::before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 60%;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transform: rotate(-3deg);
-}
-
-.hero-visual::after {
-    content: 'Replace With Dashboard/Website Mockup';
-    position: absolute;
-    color: #94A3B8;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
-}
-
-/* FIXED: Stats backgrounds */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 60px;
-}
-
-.stat {
-    padding: 20px 0;
-    border-left: 2px solid #E2E8F0;
-    padding-left: 20px;
-}
-
-.stat h2 { font-size: 2.5rem; color: #2563EB; line-height: 1; }
-.stat p { font-size: 0.9rem; color: #64748B; font-weight: 500; margin-top: 5px; }
-
-/* ================= SECTIONS & CARDS ================= */
-section { padding: 100px 5%; }
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    letter-spacing: -0.5px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #64748B;
-    margin-bottom: 50px;
-    font-size: 1.1rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 16px;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
-}
-
-.icon-placeholder {
-    width: 50px;
-    height: 50px;
-    background: #EFF6FF;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #2563EB;
-}
-
-.card h3 { margin-bottom: 10px; font-size: 1.3rem; }
-.card p { color: #64748B; font-size: 0.95rem; }
-
-/* ================= PRICING ================= */
-.pricing .card {
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.pricing h1 { font-size: 3rem; margin: 20px 0; color: #0F172A; }
-
-.pricing .card.featured {
-    background: #0F172A;
-    border: 1px solid #0F172A;
-    color: white;
-    transform: scale(1.05);
-}
-
-.pricing .card.featured h3, 
-.pricing .card.featured h1 { color: white; }
-.pricing .card.featured p { color: #94A3B8; }
-
-.pricing-btn {
-    margin-top: auto;
-    padding-top: 30px;
-}
-
-/* ================= FORMS (FIXED) ================= */
-form {
-    display: grid;
-    gap: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-input, textarea {
-    padding: 16px;
-    border: 1px solid #E2E8F0;
-    background: #F8FAFC;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    width: 100%;
-    color: #0F172A;
-    transition: border 0.2s;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #2563EB;
-    background: white;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #0F172A;
-    color: #94A3B8;
-}
-
-/* ================= MOBILE ================= */
-@media(max-width: 900px) {
-    .hero { grid-template-columns: 1fr; text-align: center; padding-top: 80px; }
-    .hero-content p { margin: 0 auto 30px; }
-    .stats { grid-template-columns: 1fr; gap: 40px; }
-    .stat { border-left: none; border-top: 2px solid #E2E8F0; padding-left: 0; padding-top: 20px; }
-    .hero-visual { height: 300px; margin-top: 20px; }
-    .pricing .card.featured { transform: scale(1); }
-    nav { display: none; /* Add a hamburger menu logic later */ }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dariya Digital — Full-service growth agency helping businesses grow online and offline through marketing, SEO, automation, and connecting you with trusted IT & software solutions." />
+  <title>Dariya Digital | Grow Your Business Online & Offline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-    <a href="#" class="brand">Dariya Digital</a>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>Websites That Turn Visitors Into Customers</h1>
-        <p>We build high-converting websites, branding, SEO, and marketing systems that help businesses scale faster.</p>
-        <a href="#contact" class="btn">Get Free Consultation</a>
-        
-        <div class="stats">
-            <div class="stat"><h2>50+</h2><p>Projects Delivered</p></div>
-            <div class="stat"><h2>98%</h2><p>Client Satisfaction</p></div>
-            <div class="stat"><h2>24/7</h2><p>Support</p></div>
-        </div>
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">Dariya<span>Digital</span></a>
+      <ul class="nav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#it-solutions">IT Solutions</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Results</a></li>
+        <li><a href="#contact" class="btn btn--sm">Free Consultation</a></li>
+      </ul>
+      <button class="nav__toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    
-    <div class="hero-visual">
-        <!-- This is a CSS placeholder for a mockup graphic -->
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#it-solutions">IT Solutions</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Results</a>
+      <a href="#contact" class="btn">Free Consultation</a>
     </div>
-</section>
+  </nav>
 
-<section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Everything you need to dominate your market.</p>
-    <div class="grid">
-        <div class="card">
-            <div class="icon-placeholder">⚡</div>
-            <h3>Lead Generation Websites</h3>
-            <p>Custom designs engineered specifically to convert casual visitors into paying customers.</p>
-        </div>
-        <div class="card">
-            <div class="icon-placeholder">🔍</div>
-            <h3>SEO Optimization</h3>
-            <p>Rank higher on Google, dominate local search, and capture high-intent organic traffic.</p>
-        </div>
-        <div class="card">
-            <div class="icon-placeholder">⚙️</div>
-            <h3>Marketing Automation</h3>
-            <p>Save hours of manual work by automating lead nurturing and customer follow-ups.</p>
-        </div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__blob blob1"></div>
+      <div class="hero__blob blob2"></div>
+      <div class="hero__grid"></div>
     </div>
-</section>
-
-<section id="pricing" class="pricing" style="background: #F8FAFC;">
-    <h2 class="section-title">Transparent Pricing</h2>
-    <p class="section-subtitle">No hidden fees. Just ROI.</p>
-    <div class="grid">
-        <div class="card">
-            <h3>Starter</h3>
-            <h1>$999</h1>
-            <p>Perfect for new businesses needing a professional digital presence.</p>
-            <div class="pricing-btn"><a href="#contact" class="btn" style="background: transparent; color: #2563EB; border: 1px solid #2563EB; width: 100%;">Choose Starter</a></div>
+    <div class="container hero__inner">
+      <div class="hero__badge">
+        <span class="badge__dot"></span>
+        Trusted by 50+ Growing Businesses
+      </div>
+      <h1 class="hero__headline">
+        We Help Businesses Grow<br />
+        <span class="gradient-text">Online & Offline</span>
+      </h1>
+      <p class="hero__sub">
+        Marketing, SEO, branding, automation — and when you need a website,
+        custom software, or any IT solution, we connect you with the right
+        experts to get it built right.
+      </p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary btn--lg">Get Free Consultation</a>
+        <a href="#services" class="btn btn--ghost btn--lg">See Our Work ↓</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">50<span class="stat__plus">+</span></span>
+          <span class="stat__label">Projects Delivered</span>
         </div>
-        <div class="card featured">
-            <h3>Business Growth</h3>
-            <h1>$2,499</h1>
-            <p>Website + Foundation SEO + Lead capture forms setup.</p>
-            <div class="pricing-btn"><a href="#contact" class="btn" style="background: #2563EB; width: 100%;">Choose Business</a></div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">98<span class="stat__pct">%</span></span>
+          <span class="stat__label">Client Satisfaction</span>
         </div>
-        <div class="card">
-            <h3>Premium Scale</h3>
-            <h1>$4,999</h1>
-            <p>Complete growth package with advanced automation and CRM integration.</p>
-            <div class="pricing-btn"><a href="#contact" class="btn" style="background: transparent; color: #2563EB; border: 1px solid #2563EB; width: 100%;">Choose Premium</a></div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">24/7</span>
+          <span class="stat__label">Dedicated Support</span>
         </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">3x</span>
+          <span class="stat__label">Average ROI Increase</span>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-subtitle">Ready to upgrade your digital presence?</p>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Work Email" required>
-        <textarea rows="5" placeholder="Tell us about your business and goals..." required></textarea>
-        <button type="submit" class="btn" style="width: 100%;">Request Free Quote</button>
-    </form>
-</section>
+  <!-- LOGOS / SOCIAL PROOF -->
+  <section class="logos">
+    <div class="container">
+      <p class="logos__label">Trusted by businesses across industries</p>
+      <div class="logos__track">
+        <div class="logos__slide">
+          <span class="logo-pill">E-Commerce</span>
+          <span class="logo-pill">Real Estate</span>
+          <span class="logo-pill">Healthcare</span>
+          <span class="logo-pill">Law Firms</span>
+          <span class="logo-pill">Restaurants</span>
+          <span class="logo-pill">Coaching</span>
+          <span class="logo-pill">SaaS</span>
+          <span class="logo-pill">Fitness</span>
+          <span class="logo-pill">E-Commerce</span>
+          <span class="logo-pill">Real Estate</span>
+          <span class="logo-pill">Healthcare</span>
+          <span class="logo-pill">Law Firms</span>
+          <span class="logo-pill">Restaurants</span>
+          <span class="logo-pill">Coaching</span>
+          <span class="logo-pill">SaaS</span>
+          <span class="logo-pill">Fitness</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    <p>© 2026 Dariya Digital. All Rights Reserved.</p>
-</footer>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">What We Do</p>
+        <h2>Marketing, Growth & Tech —<br /><span class="gradient-text">All Under One Roof</span></h2>
+        <p class="section-sub">From your first Google ranking to a fully custom software system — we've got every angle covered.</p>
+      </div>
+      <div class="services__grid">
 
+        <div class="service-card service-card--featured">
+          <div class="service-card__icon">⚡</div>
+          <h3>Lead Generation Websites</h3>
+          <p>Custom designs engineered specifically to convert casual visitors into paying customers. Every pixel has a purpose.</p>
+          <ul class="service-card__list">
+            <li>Conversion-focused UI/UX design</li>
+            <li>Mobile-first responsive build</li>
+            <li>Speed-optimized for Core Web Vitals</li>
+            <li>A/B tested landing pages</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Start a project →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">🔍</div>
+          <h3>SEO Optimization</h3>
+          <p>Rank higher on Google, dominate local search, and capture high-intent organic traffic that actually converts.</p>
+          <ul class="service-card__list">
+            <li>Technical SEO audits & fixes</li>
+            <li>Keyword strategy & content planning</li>
+            <li>Google Business Profile optimization</li>
+            <li>Monthly ranking reports</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Boost my rankings →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">⚙️</div>
+          <h3>Marketing Automation</h3>
+          <p>Save hours of manual work by automating lead nurturing and customer follow-ups so no opportunity slips through.</p>
+          <ul class="service-card__list">
+            <li>Email drip sequence setup</li>
+            <li>CRM integration & pipeline build</li>
+            <li>Lead scoring & segmentation</li>
+            <li>SMS & WhatsApp automations</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Automate my growth →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">🎨</div>
+          <h3>Brand Identity</h3>
+          <p>A brand that commands premium prices. We craft visual identities that make you unforgettable and instantly credible.</p>
+          <ul class="service-card__list">
+            <li>Logo & brand mark design</li>
+            <li>Color palette & typography system</li>
+            <li>Brand guidelines document</li>
+            <li>Social media kit</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Build my brand →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">📈</div>
+          <h3>Paid Advertising</h3>
+          <p>Profitable Google Ads and Meta campaigns managed by certified specialists who treat your budget like their own.</p>
+          <ul class="service-card__list">
+            <li>Google Search & Display Ads</li>
+            <li>Facebook & Instagram Ads</li>
+            <li>Retargeting campaigns</li>
+            <li>Weekly performance dashboards</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Run my ads →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">📊</div>
+          <h3>Analytics & Reporting</h3>
+          <p>Crystal-clear dashboards so you always know what's working, what isn't, and exactly where every dollar is going.</p>
+          <ul class="service-card__list">
+            <li>GA4 & Tag Manager setup</li>
+            <li>Custom conversion tracking</li>
+            <li>Monthly strategy calls</li>
+            <li>Competitor benchmarking</li>
+          </ul>
+          <a href="#contact" class="service-card__link">Track my results →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IT SOLUTIONS PARTNER SECTION -->
+  <section class="it-solutions" id="it-solutions">
+    <div class="container">
+      <div class="it-solutions__inner">
+        <div class="it-solutions__left">
+          <p class="section-tag">Tech Solutions</p>
+          <h2>Need a Website, App, or<br /><span class="gradient-text">Custom Software?</span></h2>
+          <p class="it-solutions__sub">
+            Marketing gets people to your door — but sometimes you need the door built first.
+            Through our trusted tech partnership with <strong>Ankush Gupta Tech</strong>, we connect
+            our clients with a specialist who builds exactly what their business needs.
+          </p>
+          <div class="it-services">
+            <div class="it-service-item">
+              <span class="it-service-item__icon">🌐</span>
+              <div>
+                <strong>Business Websites</strong>
+                <p>High-performance, mobile-first websites built to convert — from landing pages to full multi-page platforms.</p>
+              </div>
+            </div>
+            <div class="it-service-item">
+              <span class="it-service-item__icon">⚙️</span>
+              <div>
+                <strong>Custom Software & POS</strong>
+                <p>Order management, inventory systems, booking platforms — software engineered exactly for your workflow.</p>
+              </div>
+            </div>
+            <div class="it-service-item">
+              <span class="it-service-item__icon">🤖</span>
+              <div>
+                <strong>AI Tools & Automation</strong>
+                <p>Intelligent assistants, AI chatbots, and workflow automation systems that work around the clock.</p>
+              </div>
+            </div>
+            <div class="it-service-item">
+              <span class="it-service-item__icon">📱</span>
+              <div>
+                <strong>Any IT Solution</strong>
+                <p>SaaS platforms, mobile apps, data dashboards, integrations — if it's tech, we can connect you to the right builder.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--primary btn--lg" style="margin-top:12px;">Tell Us What You Need →</a>
+        </div>
+        <div class="it-solutions__right">
+          <div class="it-partner-card">
+            <div class="it-partner-card__badge">Trusted Tech Partner</div>
+            <div class="it-partner-card__logo">AG</div>
+            <h3>Ankush Gupta Tech</h3>
+            <p>Custom software, websites, AI tools, and automation systems built for real businesses. Based in Yellowknife, NT — delivering globally.</p>
+            <div class="it-partner-card__stats">
+              <div class="it-partner-stat">
+                <strong>8+</strong>
+                <span>Systems Deployed</span>
+              </div>
+              <div class="it-partner-stat">
+                <strong>4</strong>
+                <span>Industries Served</span>
+              </div>
+              <div class="it-partner-stat">
+                <strong>50+</strong>
+                <span>Users Trained</span>
+              </div>
+            </div>
+            <div class="it-partner-card__projects">
+              <span class="it-project-tag">POS Systems</span>
+              <span class="it-project-tag">Catering Sites</span>
+              <span class="it-project-tag">Medical Booking</span>
+              <span class="it-project-tag">SaaS Platforms</span>
+              <span class="it-project-tag">AI Chatbots</span>
+              <span class="it-project-tag">Trading Bots</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">How We Work</p>
+        <h2>From Zero to <span class="gradient-text">Revenue Machine</span><br />in 4 Simple Steps</h2>
+      </div>
+      <div class="process__steps">
+        <div class="process__step">
+          <div class="step__num">01</div>
+          <div class="step__content">
+            <h3>Discovery Call</h3>
+            <p>We learn your business, goals, and target audience inside out. No templates — every strategy is built for you.</p>
+          </div>
+        </div>
+        <div class="process__connector"></div>
+        <div class="process__step">
+          <div class="step__num">02</div>
+          <div class="step__content">
+            <h3>Strategy & Design</h3>
+            <p>We map out your conversion funnel and design a website that guides visitors to take action at every step.</p>
+          </div>
+        </div>
+        <div class="process__connector"></div>
+        <div class="process__step">
+          <div class="step__num">03</div>
+          <div class="step__content">
+            <h3>Build & Launch</h3>
+            <p>Fast, clean development with full testing. Your site goes live optimized for speed, SEO, and conversions from day one.</p>
+          </div>
+        </div>
+        <div class="process__connector"></div>
+        <div class="process__step">
+          <div class="step__num">04</div>
+          <div class="step__content">
+            <h3>Grow & Scale</h3>
+            <p>We monitor, optimize, and continuously improve your digital presence so your results compound over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Client Results</p>
+        <h2>Real Businesses.<br /><span class="gradient-text">Real Growth.</span></h2>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Dariya Digital completely transformed our online presence. We went from 5 leads a month to over 60 — in just 90 days. Best investment we've ever made."</p>
+          <div class="testimonial-card__author">
+            <div class="author__avatar">RK</div>
+            <div>
+              <strong>Rajesh Kumar</strong>
+              <span>CEO, PropVision Realty</span>
+            </div>
+          </div>
+          <div class="testimonial-card__result">12x lead increase in 90 days</div>
+        </div>
+
+        <div class="testimonial-card testimonial-card--highlight">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Our Google rankings shot up from page 4 to position 1 for our main keyword. The SEO work alone paid for the entire package in the first month."</p>
+          <div class="testimonial-card__author">
+            <div class="author__avatar">SN</div>
+            <div>
+              <strong>Sara Nasser</strong>
+              <span>Owner, Bright Smile Dental</span>
+            </div>
+          </div>
+          <div class="testimonial-card__result">#1 Google ranking achieved</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"The automation they set up saves my team 15+ hours every week. Our follow-up rate is now 100% and we never miss a hot lead. Absolute game changer."</p>
+          <div class="testimonial-card__author">
+            <div class="author__avatar">AM</div>
+            <div>
+              <strong>Ali Mahmoud</strong>
+              <span>Founder, FitPro Coaching</span>
+            </div>
+          </div>
+          <div class="testimonial-card__result">15+ hours saved per week</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Transparent Pricing</p>
+        <h2>No Hidden Fees.<br /><span class="gradient-text">Just ROI.</span></h2>
+        <p class="section-sub">All plans include a free strategy session. Cancel anytime.</p>
+      </div>
+      <div class="pricing__grid">
+
+        <div class="pricing-card">
+          <div class="pricing-card__header">
+            <p class="plan-name">Starter</p>
+            <div class="plan-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">999</span>
+            </div>
+            <p class="plan-period">one-time</p>
+            <p class="plan-desc">Perfect for new businesses needing a professional digital presence.</p>
+          </div>
+          <ul class="pricing-card__features">
+            <li><span class="check">✓</span> 5-page conversion website</li>
+            <li><span class="check">✓</span> Mobile-responsive design</li>
+            <li><span class="check">✓</span> Basic on-page SEO</li>
+            <li><span class="check">✓</span> Contact form integration</li>
+            <li><span class="check">✓</span> Google Analytics setup</li>
+            <li><span class="check">✓</span> 30-day post-launch support</li>
+            <li class="muted"><span>✗</span> Lead capture automation</li>
+            <li class="muted"><span>✗</span> SEO content strategy</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Choose Starter</a>
+        </div>
+
+        <div class="pricing-card pricing-card--popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-card__header">
+            <p class="plan-name">Business Growth</p>
+            <div class="plan-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">2,499</span>
+            </div>
+            <p class="plan-period">one-time</p>
+            <p class="plan-desc">Website + Foundation SEO + Lead capture forms setup.</p>
+          </div>
+          <ul class="pricing-card__features">
+            <li><span class="check">✓</span> 10-page conversion website</li>
+            <li><span class="check">✓</span> Premium UI/UX design</li>
+            <li><span class="check">✓</span> Full technical SEO audit</li>
+            <li><span class="check">✓</span> Lead capture forms & CRM</li>
+            <li><span class="check">✓</span> Email nurture sequence (5 emails)</li>
+            <li><span class="check">✓</span> Google Business Profile setup</li>
+            <li><span class="check">✓</span> 90-day priority support</li>
+            <li><span class="check">✓</span> Monthly analytics report</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--full">Choose Business Growth</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-card__header">
+            <p class="plan-name">Premium Scale</p>
+            <div class="plan-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">4,999</span>
+            </div>
+            <p class="plan-period">one-time</p>
+            <p class="plan-desc">Complete growth package with advanced automation and CRM integration.</p>
+          </div>
+          <ul class="pricing-card__features">
+            <li><span class="check">✓</span> Unlimited pages website</li>
+            <li><span class="check">✓</span> Custom brand identity</li>
+            <li><span class="check">✓</span> Advanced SEO + content strategy</li>
+            <li><span class="check">✓</span> Full marketing automation</li>
+            <li><span class="check">✓</span> CRM integration & pipeline</li>
+            <li><span class="check">✓</span> Paid ads strategy & setup</li>
+            <li><span class="check">✓</span> 12-month ongoing support</li>
+            <li><span class="check">✓</span> Bi-weekly strategy calls</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Choose Premium Scale</a>
+        </div>
+
+      </div>
+      <p class="pricing__note">Not sure which plan is right for you? <a href="#contact">Book a free call</a> and we'll figure it out together.</p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg">
+      <div class="cta-banner__blob"></div>
+    </div>
+    <div class="container cta-banner__inner">
+      <h2>Ready to Grow Your Business —<br />Online, Offline, or Both?</h2>
+      <p>Book your free 30-minute strategy session. Marketing, tech, software — we'll figure out exactly what your business needs and who can best deliver it.</p>
+      <a href="#contact" class="btn btn--white btn--lg">Book My Free Strategy Call →</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <p class="section-tag">Get In Touch</p>
+        <h2>Ready to Upgrade<br /><span class="gradient-text">Your Digital Presence?</span></h2>
+        <p class="contact__sub">Fill out the form and we'll get back to you within 24 hours with a custom strategy for your business.</p>
+        <div class="contact__details">
+          <div class="contact-item">
+            <span class="contact-item__icon">📧</span>
+            <span>hello@dariya.digital</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item__icon">📱</span>
+            <span>Available on WhatsApp</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item__icon">⏱</span>
+            <span>Response within 24 hours</span>
+          </div>
+        </div>
+        <div class="contact__guarantee">
+          <span class="guarantee-icon">🛡</span>
+          <div>
+            <strong>Our Promise</strong>
+            <p>If you're not 100% happy with your website, we'll redesign it for free. Zero risk, pure results.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact__form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Work Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option>Lead Generation Website</option>
+            <option>SEO Optimization</option>
+            <option>Marketing Automation</option>
+            <option>Brand Identity</option>
+            <option>Paid Advertising</option>
+            <option>Full Growth Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Business *</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your business and goals..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg">
+          <span class="btn-text">Request Free Quote →</span>
+          <span class="btn-loading" style="display:none">Sending...</span>
+        </button>
+        <p class="form-note">No spam. No commitment. Just a conversation about your growth.</p>
+        <div class="form-success" id="formSuccess" style="display:none">
+          <span>🎉</span>
+          <p>Message received! We'll be in touch within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">Dariya<span>Digital</span></a>
+        <p>Websites that turn visitors into customers. Marketing systems that scale your business.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <a href="#services">Lead Generation Websites</a>
+          <a href="#services">SEO Optimization</a>
+          <a href="#services">Marketing Automation</a>
+          <a href="#services">Brand Identity</a>
+          <a href="#services">Paid Advertising</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="#process">How We Work</a>
+          <a href="#testimonials">Client Results</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter / X</a>
+          <a href="#contact">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2026 Dariya Digital. All Rights Reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
